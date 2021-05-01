@@ -13,7 +13,9 @@ class LeadController extends Controller
      */
     public function index()
     {
-        
+        return view('index', [
+            'content' => NULL
+        ]);
     }
 
     /**
@@ -23,7 +25,9 @@ class LeadController extends Controller
      */
     public function create()
     {
-        //
+        return view('create', [
+            'content' => NULL
+        ]);
     }
 
     /**
@@ -45,7 +49,9 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('show', [
+            'content' => NULL
+        ]);
     }
 
     /**
@@ -56,7 +62,9 @@ class LeadController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('edit', [
+            'content' => NULL
+        ]);
     }
 
     /**
