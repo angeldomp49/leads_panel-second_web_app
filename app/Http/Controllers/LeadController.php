@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lead;
 
 class LeadController extends Controller
 {
@@ -11,10 +12,28 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+
+        $leads = Lead::all();
+        $stylesheets = [
+            asset("assets/plugins/bootstrap/css/bootstrap.min.css"),
+            asset("assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"),
+            asset("assets/plugins/dropify/css/dropify.min.css"),
+            asset("assets/css/style.min.css")
+        ];
+    
+        $scripts = [
+            asset("assets/bundles/lib.vendor.bundle.js",),
+            asset("assets/bundles/sweetalert.bundle.js"),
+            asset("assets/plugins/dropify/js/dropify.min.js"),
+            asset("assets/js/core.js"),
+            asset("assets/js/page/dialogs.js")
+        ];
+
         return view('index', [
-            'content' => NULL
+            'stylesheets' => $stylesheets,
+            'scripts' => $scripts,
+            'leads' => $leads
         ]);
     }
 
@@ -25,6 +44,7 @@ class LeadController extends Controller
      */
     public function create()
     {
+
         return view('create', [
             'content' => NULL
         ]);
@@ -49,9 +69,7 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        return view('show', [
-            'content' => NULL
-        ]);
+        return redirect()->route('lead.edit', ['lead'=>$id]);
     }
 
     /**
@@ -62,8 +80,28 @@ class LeadController extends Controller
      */
     public function edit($id)
     {
+        $lead = Lead::find($id);
+
+        $stylesheets = [
+            asset("assets/plugins/bootstrap/css/bootstrap.min.css"),
+            asset("assets/plugins/summernote/dist/summernote.css"),
+            asset("assets/plugins/summernote/dist/summernote.css"),
+            asset("assets/css/style.min.css")
+        ];
+    
+        $scripts = [
+            asset("assets/bundles/lib.vendor.bundle.js"),
+            asset("assets/bundles/fullcalendar.bundle.js"),
+            asset("assets/bundles/knobjs.bundle.js"),
+            asset("assets/js/core.js"),
+            asset("university/assets/js/page/calendar.js"),
+            asset("university/assets/js/chart/knobjs.js")
+        ];
+
         return view('edit', [
-            'content' => NULL
+            'stylesheets' => $stylesheets,
+            'scripts' => $scripts,
+            'lead' => $lead
         ]);
     }
 

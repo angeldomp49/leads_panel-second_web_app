@@ -17,7 +17,7 @@ class Lead extends Model
 {
     use HasFactory;
 
-    public function informations(){
+    public function information(){
         return $this->hasOne(Information::class);
     }
 

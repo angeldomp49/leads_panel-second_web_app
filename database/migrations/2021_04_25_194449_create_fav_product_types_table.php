@@ -16,7 +16,7 @@ class CreateFavProductTypesTable extends Migration
         Schema::create('fav_product_types', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lead_id');
-            $table->foreignId('social_media_id');
+            $table->foreignId('product_type_id');
             $table->timestamps();
         });
     }

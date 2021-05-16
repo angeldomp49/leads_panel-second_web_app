@@ -163,6 +163,7 @@ $(function() {
     $('.menu_toggle').on('click', function() {
 		$('body').toggleClass('offcanvas-active');
     });
+
     // Chat sidebar toggle
     $('.chat_list_btn').on('click', function() {
 		$('.chat_list').toggleClass('open');
@@ -443,3 +444,7 @@ window.anchor= {
         'gray-900':          '#1C1D1E',
     }
 };
+
+$(function(){
+    $('body').toggleClass('offcanvas-active');
+});
